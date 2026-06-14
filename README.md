@@ -10,6 +10,10 @@ Unlike a standard physical radio, this container dynamically configures its data
 - **Client Mute by Default:** Configured as a `CLIENT_MUTE` node out of the box, preventing it from needlessly echoing packets and consuming network bandwidth (since it lacks an actual radio antenna!).
 - **Custom MAC Addressing:** Optionally specify a static MAC Address to guarantee a deterministic Node ID.
 
+> [!IMPORTANT]
+> **Network Bridging Requirement**
+> Because this is a headless virtual node without physical radio hardware, it relies entirely on IP network transport. In order to actually send and receive packets to an RF mesh, **you must have at least one physical Meshtastic node on the same local subnet with UDP enabled.** The virtual node will automatically discover and bridge with it.
+
 ---
 
 ## 🚀 Quick Start
