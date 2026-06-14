@@ -34,7 +34,9 @@ def provision():
     # enabled_protocols is a bitmask. 1 = UDP_BROADCAST
     interface.localNode.localConfig.network.enabled_protocols = 1
     
-    # Set Device Config
+    # Device Config
+    node_role = int(os.environ.get("NODE_ROLE", 1))
+    interface.localNode.localConfig.device.role = node_role
     interface.localNode.localConfig.device.node_info_broadcast_secs = 10800
     
     # Disable Telemetry
