@@ -43,6 +43,7 @@ All configuration is handled seamlessly through the `.env` file.
 | Variable | Default | Description |
 |---|---|---|
 | `MAC_ADDRESS` | *(Random)* | Set a static MAC address to force a specific Hex Node ID. E.g. `AA:BB:CC:DD:EE:FF` |
+| `IMAGE_TAG` | `beta-debian` | The official `meshtastic/meshtasticd` image tag to build from. |
 | `NODE_LONG_NAME` | `Virtual Node` | The long name visible to other users on the mesh. |
 | `NODE_SHORT_NAME`| `VIRT` | The 4-character short name. |
 | `NODE_ROLE` | `1` | Meshtastic Role. Default `1` is `CLIENT_MUTE`. |
