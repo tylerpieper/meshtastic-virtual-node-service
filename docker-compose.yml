@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        IMAGE_TAG: ${IMAGE_TAG:-beta-debian}
     image: meshtastic-virtual-node
     restart: unless-stopped
     ports:

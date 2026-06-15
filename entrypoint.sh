@@ -70,8 +70,8 @@ if [ "$DB_EXISTS" = false ]; then
     
     # Kill the temporary daemon
     echo "Shutting down temporary meshtasticd..."
-    kill -15 $DAEMON_PID
-    wait $DAEMON_PID || true
+    kill -15 $DAEMON_PID 2>/dev/null || true
+    wait $DAEMON_PID 2>/dev/null || true
     echo "Provisioning complete."
 fi
 
