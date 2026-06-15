@@ -51,7 +51,7 @@ All configuration is handled seamlessly through the `.env` file.
 | `CHANNEL_KEY` | `AQ==` | The Base64 encryption key. `AQ==` is the standard "Default" mesh key. |
 | `LATITUDE` | *(None)* | Fixed GPS Latitude. |
 | `LONGITUDE` | *(None)* | Fixed GPS Longitude. |
-| `POSITION_PRECISION` | `14` | GPS precision bit depth. 14 is highly precise. |
+| `POSITION_PRECISION` | `14` | [See here for more info](https://meshtastic.org/docs/configuration/radio/channels/#position-precision) |
 | `API_PORT` | `44404` | The TCP port exposed for the Meshtastic API. |
 | `HOP_LIMIT` | `7` | The default maximum hop limit for outbound packets. |
 | `DATA_DIR` | `./data` | Where the persistent NodeDB and configuration files are stored. |
