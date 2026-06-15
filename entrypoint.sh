@@ -2,7 +2,6 @@
 set -e
 
 # Environment variables
-API_PORT=${API_PORT:-44404}
 MAC_ADDRESS=${MAC_ADDRESS:-}
 NODE_LONG_NAME=${NODE_LONG_NAME:-VirtualNode}
 NODE_SHORT_NAME=${NODE_SHORT_NAME:-VIRT}
@@ -43,14 +42,14 @@ fi
 if [ "$DB_EXISTS" = false ]; then
     echo "First boot detected. Provisioning..."
     
-    echo "Starting meshtasticd temporarily on port $API_PORT..."
-    meshtasticd -c /var/opt/meshtasticd/config.yaml -d /var/opt/meshtasticd --port $API_PORT &
+    echo "Starting meshtasticd temporarily on port 4403..."
+    meshtasticd -c /var/opt/meshtasticd/config.yaml -d /var/opt/meshtasticd --port 4403 &
     DAEMON_PID=$!
     
     echo "Waiting for daemon to initialize and generate keys..."
     READY=false
     for i in {1..15}; do
-        if meshtastic --host 127.0.0.1:$API_PORT --info >/dev/null 2>&1; then
+        if meshtastic --host 127.0.0.1 --info >/dev/null 2>&1; then
             READY=true
             break
         fi
@@ -76,5 +75,5 @@ if [ "$DB_EXISTS" = false ]; then
 fi
 
 # Start normal execution
-echo "Starting meshtasticd on port $API_PORT with MAC $MAC_ADDRESS..."
-exec meshtasticd -c /var/opt/meshtasticd/config.yaml -d /var/opt/meshtasticd --port $API_PORT
+echo "Starting meshtasticd on port 4403 with MAC $MAC_ADDRESS..."
+exec meshtasticd -c /var/opt/meshtasticd/config.yaml -d /var/opt/meshtasticd --port 4403

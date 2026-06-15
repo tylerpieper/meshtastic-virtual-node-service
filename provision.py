@@ -6,7 +6,7 @@ import meshtastic.tcp_interface
 from pubsub import pub
 
 def provision():
-    port = int(os.environ.get("API_PORT", 44404))
+    port = 4403
     print(f"Connecting to meshtasticd on localhost:{port}...")
     
     interface = None
